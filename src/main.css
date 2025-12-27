@@ -1,0 +1,484 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6fb;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR (generic)
+========================= */
+nav {
+  display: flex;
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+  padding: 1rem 2rem;
+  text-align: center;
+  justify-content: center;
+
+}
+
+nav a {
+  align-items: center;
+  display: flex;
+  color: #fff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #00eaff;
+}
+
+/* =========================
+   PAGE WRAPPER
+========================= */
+div > h2 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+/* =========================
+   HOME PAGE
+========================= */
+#welcome {
+  font-size: 2.4rem;
+  margin-top: 2.5rem;
+  letter-spacing: 1px;
+}
+
+#welcome-text {
+  text-align: center;
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  color: #555;
+}
+
+section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+section h3 {
+  margin-bottom: 0.5rem;
+}
+
+section h4 {
+  margin-top: 1.2rem;
+}
+
+section ul {
+  margin-left: 1.2rem;
+}
+
+section li {
+  margin-bottom: 0.4rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+#get-started-btn,
+button {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#get-started-btn:hover,
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 114, 255, 0.5);
+}
+
+/* =========================
+   ABOUT PAGE
+========================= */
+div > h1 {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+div > p {
+  max-width: 900px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+div > ul {
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  padding-left: 1.5rem;
+}
+
+/* =========================
+   PROJECTS PAGE
+========================= */
+ul li h3 {
+  color: #0072ff;
+}
+
+ul li {
+  margin-bottom: 1.2rem;
+}
+
+/* =========================
+   BLOG PAGE (works with inline styles)
+========================= */
+
+/* Layout Containers */
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.blog-header {
+  margin-bottom: 40px;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 20px;
+}
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 60px;
+}
+
+/* Sidebar Styling */
+.blog-sidebar {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.sidebar-item {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.sidebar-item:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.sidebar-item.active {
+  background-color: #e0f2fe; /* Light Neon Blue */
+  color: #0369a1;
+  font-weight: 600;
+}
+
+/* Post Styling */
+.blog-post {
+  max-width: 700px; /* Limits width for better reading focus */
+}
+
+.post-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 30px;
+}
+
+.post-content {
+  font-size: 1.2rem;
+  line-height: 1.8; /* Crucial for long text */
+  color: #334155;
+  white-space: pre-line; /* Respects your line breaks */
+}
+
+/* Voting Buttons */
+.vote-section {
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.vote-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.vote-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+  }
+  .blog-sidebar {
+    position: relative;
+    margin-bottom: 40px;
+  }
+}
+
+/* =========================
+   CONTACT PAGE
+========================= */
+a {
+  color: #0072ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top right, #e2e8f0, #f8fafc);
+  padding: 40px 20px;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+}
+
+/* Typography Improvements */
+.welcome-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.welcome-subtitle {
+  font-size: 1.25rem;
+  color: #64748b;
+  margin-bottom: 3rem;
+}
+
+.welcome-subtitle span {
+  color: #00d2ff; /* Your NeonFlow brand color */
+  font-weight: 600;
+}
+
+/* The Glassmorphism Card Effect */
+.info-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 
+              0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  text-align: left;
+  border: 1px solid #f1f5f9;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.info-card h3 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: #0f172a;
+}
+
+.info-card p {
+  line-height: 1.7;
+  color: #475569;
+  font-size: 1.1rem;
+}
+/* =========================
+   FOOTER (IMPROVED)
+========================= */
+footer {
+  margin-top: 0;
+  padding: 2rem 1rem;
+  background: linear-gradient(90deg, #0f2027, #203a43);
+  color: #bbb;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin-top: 0.8rem;
+  color: #999;
+}
+/* =========================
+   SOCIAL ICONS
+========================= */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 1rem;
+}
+
+.social-icons a {
+  font-size: 1.6rem;
+  color: #ccc;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: translateY(-4px) scale(1.1);
+}
+
+/* brand colors on hover */
+.social-icons a:hover .fa-github {
+  color: #ffffff;
+}
+
+.social-icons a:hover .fa-instagram {
+  color: #e1306c;
+}
+
+.social-icons a:hover .fa-linkedin {
+  color: #0077b5;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  section {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  h1, h2 {
+    font-size: 1.6rem;
+  }
+}
+/* =========================
+   STAKEHOLDERS STRIP (IMPROVED)
+========================= */
+.stakeholders {
+  margin-top: 4rem;
+  padding: 1.5rem 0;
+  background: linear-gradient(90deg, #0f2027, #203a43);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 0;
+}
+
+.stakeholders h3 {
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  color: #00eaff;
+  letter-spacing: 1px;
+}
+
+/* marquee container */
+.marquee {    
+  overflow: hidden;
+  width: 100%;
+}
+
+/* scrolling row */
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  animation: scroll-left 15s linear infinite;
+}
+
+/* each stakeholder */
+.marquee-track span {
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  color: #eafcff;
+  box-shadow: 0 0 10px rgba(0,234,255,0.15);
+}
+
+.skills {
+  max-width: 700px;
+  margin: auto;
+}
+
+.skills-list {
+  list-style: none;         
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-wrap: wrap;         
+  gap: 1rem;
+}
+.skills-list li {
+  flex: 1 1 45%;             /* two columns */
+  padding: 12px 16px;
+
+  background: #0f2027;
+  color: white;
+  border-radius: 8px;
+
+  font-weight: 500;
+  text-align: center;
+}
+
+
+/* Items */
+.marquee-track span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+/* Animation */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
