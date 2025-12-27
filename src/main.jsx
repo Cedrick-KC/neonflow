@@ -192,7 +192,7 @@ function Blog() {
                 <p>{activeBlog.content}</p>
               </div>
               
-              <div className="vote-actions">
+              {/*<div className="vote-actions">
                 <button 
                   className="vote-btn"
                   onClick={() => handleVote(activeBlog.id, 'likes')}
@@ -205,7 +205,7 @@ function Blog() {
                 >
                   👎 {activeBlog.dislikes}
                 </button>
-              </div>
+              </div>*/}
             </div>
           ) : (
             <h2>Select a blog from the sidebar to read</h2>
