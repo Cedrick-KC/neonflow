@@ -96,38 +96,38 @@ function Blog() {
       likes: 0,
       dislikes: 0    
     },
-  {
-    id: 1,
-    title: 'Should AI be terrifying or resourceful?',
-    content: 'As in this decade Ai still thrives in making daily tasks more easily many people see their importances through the mirror of terror that they may do tasks that were supposed to be for the humans but Ai should be seen through the mirror of resourcefulness',
-    date: 'Dec 24, 2025',
-    likes: 0,
-    dislikes: 0
-  },
-  {
-    id: 2,
-    title: 'The Future of Work',
-    content: 'As remote work becomes versatile here are some useful sources of the information:"DevList: Which provides news obut best paying companies, top rated skills of the week, News in Tech... "',
-    date: 'Dec 26, 2025',
-    likes: 0,
-    dislikes: 0
-  },
-  {
-    id: 3,
-    title: 'Top 5 Productivity Hacks from NeonFlow',
-    content: 'Discover some of the Tech Productivity hacks at NeonFlow- Coding has rules: "Never repeat youself","To every bug there is a relevant correction","Stay updated", "Learn to work with Ai", "Don\'t ever think you know it all".',
-    date: 'Dec 26, 2025',
-    likes: 0,
-    dislikes: 0
-  },
-   {
-    id: 4,
-    title: 'My 5 Must-Have VS Code Extensions for 2025',
-    content: 'Productivity is about working smarter, not harder. At NeonFlow, we rely on these extensions to keep our code clean: 1. Prettier for formatting, 2. ES7+ React snippets for speed, 3. GitLens for version tracking, 4. Postman for endpoints checking, and 5. Error Lens to catch bugs instantly.',
-    date: 'Dec 27, 2025',
-    likes: 0,
-    dislikes: 0
-   },
+    {
+      id: 1,
+      title: 'Should AI be terrifying or resourceful?',
+      content: 'As in this decade Ai still thrives in making daily tasks more easily many people see their importances through the mirror of terror that they may do tasks that were supposed to be for the humans but Ai should be seen through the mirror of resourcefulness',
+      date: 'Dec 24, 2025',
+      likes: 0,
+      dislikes: 0
+    },
+    {
+      id: 2,
+      title: 'The Future of Work',
+      content: 'As remote work becomes versatile here are some useful sources of the information:"DevList: Which provides news obut best paying companies, top rated skills of the week, News in Tech... "',
+      date: 'Dec 26, 2025',
+      likes: 0,
+      dislikes: 0
+    },
+    {
+      id: 3,
+      title: 'Top 5 Productivity Hacks from NeonFlow',
+      content: 'Discover some of the Tech Productivity hacks at NeonFlow- Coding has rules: "Never repeat youself","To every bug there is a relevant correction","Stay updated", "Learn to work with Ai", "Don\'t ever think you know it all".',
+      date: 'Dec 26, 2025',
+      likes: 0,
+      dislikes: 0
+    },
+    {
+      id: 4,
+      title: 'My 5 Must-Have VS Code Extensions for 2025',
+      content: 'Productivity is about working smarter, not harder. At NeonFlow, we rely on these extensions to keep our code clean: 1. Prettier for formatting, 2. ES7+ React snippets for speed, 3. GitLens for version tracking, 4. Postman for endpoints checking, and 5. Error Lens to catch bugs instantly.',
+      date: 'Dec 27, 2025',
+      likes: 0,
+      dislikes: 0
+    },
     {
       id: 5,
       title: 'Why Low-Code will not Kill Software Engineering',
@@ -136,12 +136,12 @@ function Blog() {
       likes: 0,
       dislikes: 0
     }
-];
+  ];
 
   const [blogs, setBlogs] = useState(initialBlogs);
   const [selectedId, setSelectedId] = useState(0);
   
-     const handleVote = (id, type) => {
+  const handleVote = (id, type) => {
     setBlogs(prevBlogs => prevBlogs.map(blog => {
       if (blog.id === id) {
         return { ...blog, [type]: blog[type] + 1 };
@@ -149,59 +149,70 @@ function Blog() {
       return blog;
     }));
   };
+  
   const activeBlog = blogs.find(blog => blog.id === selectedId);
 
   return (
-   <div>
-   
-
-      <h2>Blog Page</h2>
-      <p>Welcome to the NeonFlow blog! Here you'll find articles on productivity, technology trends, and tips for getting the most out of NeonFlow.</p>
+    <div className="blog-page-container">
+      <div className="blog-intro">
+        <h2>Blog Page</h2>
+        <p>Welcome to the NeonFlow blog! Here you'll find articles on productivity, technology trends, and tips for getting the most out of NeonFlow.</p>
+      </div>
     
-     <div style= {{ display: 'flex' }}>
-      {/* SIDEBAR */}
-{/* SIDEBAR */}
-<aside className="blog-sidebar">
-  <h3 className="sidebar-heading">Explore Stories</h3>
-  <div className="sidebar-list">
-    {blogs.map((blog) => (
-      <div
-        key={blog.id}
-        onClick={() => setSelectedId(blog.id)}
-        className={`sidebar-card ${selectedId === blog.id ? 'active' : ''}`}
-      >
-        <div className="card-content">
-          <span className="card-category">{blog.category || "Insight"}</span>
-          <h4 className="card-title">{blog.title}</h4>
-          <span className="card-date">{blog.date || "Just now"}</span>
-        </div>
-        {selectedId === blog.id && <div className="active-indicator" />}
-      </div>
-    ))}
-  </div>
-</aside>
-      {/* MAIN CONTENT AREA */}
-      <div style={{ }}>
-        {activeBlog ? (
-          <div>
-            <h1 style={{ marginLeft: '20%'}}>{activeBlog.title}</h1>
-            <p  style={{ marginLeft: '20%', marginRight: '50%'  }}>{activeBlog.content}</p>
-            
-           {/* <div style={{ marginTop: '20px' , marginLeft: '20%'}}>
-              <button onClick={() => handleVote(activeBlog.id, 'likes')}>
-                👍 {activeBlog.likes}
-              </button>
-              <button onClick={() => handleVote(activeBlog.id, 'dislikes')} style={{ marginLeft: '10px' }}>
-                👎 {activeBlog.dislikes}
-              </button>
-            </div> */}
+      <div className="blog-layout">
+        {/* SIDEBAR */}
+        <aside className="blog-sidebar">
+          <h3 className="sidebar-heading">Explore Stories</h3>
+          <div className="sidebar-list">
+            {blogs.map((blog) => (
+              <div
+                key={blog.id}
+                onClick={() => setSelectedId(blog.id)}
+                className={`sidebar-card ${selectedId === blog.id ? 'active' : ''}`}
+              >
+                <div className="card-content">
+                  <span className="card-category">{blog.category || "Insight"}</span>
+                  <h4 className="card-title">{blog.title}</h4>
+                  <span className="card-date">{blog.date || "Just now"}</span>
+                </div>
+                {selectedId === blog.id && <div className="active-indicator" />}
+              </div>
+            ))}
           </div>
-        ) : (
-          <h2>Select a blog from the sidebar to read</h2>
-        )}
+        </aside>
+
+        {/* MAIN CONTENT AREA */}
+        <main className="active-post">
+          {activeBlog ? (
+            <div>
+              <span className="post-label">INSIGHT</span>
+              <h1 className="post-display-title">{activeBlog.title}</h1>
+              <p className="post-meta-info">{activeBlog.date} • Kill Software Engineering</p>
+              <div className="post-body">
+                <p>{activeBlog.content}</p>
+              </div>
+              
+              <div className="vote-actions">
+                <button 
+                  className="vote-btn"
+                  onClick={() => handleVote(activeBlog.id, 'likes')}
+                >
+                  👍 {activeBlog.likes}
+                </button>
+                <button 
+                  className="vote-btn"
+                  onClick={() => handleVote(activeBlog.id, 'dislikes')}
+                >
+                  👎 {activeBlog.dislikes}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <h2>Select a blog from the sidebar to read</h2>
+          )}
+        </main>
       </div>
-    </div>
-   </div> 
+    </div> 
   );
 }
 
