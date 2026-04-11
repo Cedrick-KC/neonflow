@@ -1,0 +1,84 @@
+/* =============================================================================
+   BlogAddons.css  —  NeonFlow Portfolio
+   Import AFTER Blog.css in main.jsx:  import './BlogAddons.css'
+============================================================================= */
+
+/* Reading time */
+.post-reading-time { margin-left: 0.4em; opacity: 0.6; font-size: 0.85em; }
+
+/* Vote buttons - FIX: box-shadow none overrides global button gradient */
+.vote-actions { display: flex; gap: 0.75rem; margin-top: 2rem; }
+.vote-btn {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.45rem 1.1rem; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: inherit; font-size: 0.9rem; cursor: pointer;
+  transition: background 0.18s, border-color 0.18s, transform 0.12s;
+  font-family: inherit; box-shadow: none;
+}
+.vote-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); transform: translateY(-1px); box-shadow: none; }
+.vote-btn:active { transform: translateY(0); }
+.vote-btn span { font-variant-numeric: tabular-nums; min-width: 1.2ch; }
+
+/* Prev/Next nav */
+.post-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+.post-nav-btn {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.7rem 1rem; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  color: inherit; cursor: pointer; max-width: 48%; text-align: left;
+  transition: background 0.18s, border-color 0.18s, transform 0.12s;
+  font-family: inherit; box-shadow: none;
+}
+.post-nav-btn:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); transform: translateY(-1px); box-shadow: none; }
+.post-nav-btn.next { margin-left: auto; text-align: right; }
+.nav-arrow { font-size: 1.1rem; flex-shrink: 0; opacity: 0.7; }
+.nav-label { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.nav-hint { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.45; }
+.nav-title { font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 22ch; }
+
+/* Subscribe widget */
+.subscribe-widget { margin: 4rem auto 2rem; max-width: 680px; padding: 0 1rem; }
+.subscribe-inner {
+  background: linear-gradient(135deg, #0d0d0d 0%, #111827 100%);
+  border: 1px solid rgba(0,255,200,0.18); border-radius: 16px;
+  padding: 2.5rem 2.8rem; position: relative; overflow: hidden;
+  box-shadow: 0 0 40px rgba(0,255,200,0.06), 0 4px 24px rgba(0,0,0,0.5);
+}
+.subscribe-inner::before {
+  content: ''; position: absolute; top: -60px; left: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,255,200,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.subscribe-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; color: #00ffc8; border: 1px solid rgba(0,255,200,0.4); border-radius: 4px; padding: 3px 10px; margin-bottom: 1rem; text-transform: uppercase; }
+.subscribe-heading { font-size: 1.6rem; font-weight: 700; color: #f0f0f0; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+.subscribe-sub { color: #8a9bb0; font-size: 0.95rem; margin: 0 0 1.6rem; line-height: 1.6; }
+.subscribe-form { display: flex; flex-direction: column; gap: 0.6rem; }
+.subscribe-input-wrap { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.subscribe-input { flex: 1; min-width: 200px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0.7rem 1rem; color: #e0e0e0; font-size: 0.95rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit; }
+.subscribe-input::placeholder { color: #4a5568; }
+.subscribe-input:focus { border-color: rgba(0,255,200,0.5); box-shadow: 0 0 0 3px rgba(0,255,200,0.08); }
+.subscribe-input:disabled { opacity: 0.5; cursor: not-allowed; }
+.subscribe-btn { background: linear-gradient(135deg, #00ffc8 0%, #00c89a 100%); color: #0a0a0a; font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1.4rem; border: none; border-radius: 8px; cursor: pointer; white-space: nowrap; transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s; display: flex; align-items: center; justify-content: center; min-width: 130px; box-shadow: 0 0 16px rgba(0,255,200,0.25); font-family: inherit; }
+.subscribe-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 0 24px rgba(0,255,200,0.4); }
+.subscribe-btn:disabled { cursor: not-allowed; opacity: 0.7; }
+.subscribe-btn.success { background: linear-gradient(135deg, #00c89a 0%, #00a87e 100%); }
+.subscribe-btn.error   { background: linear-gradient(135deg, #ff6b6b 0%, #cc4444 100%); }
+.btn-spinner { width: 16px; height: 16px; border: 2px solid rgba(10,10,10,0.3); border-top-color: #0a0a0a; border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.subscribe-feedback { font-size: 0.88rem; margin: 0; padding: 0.5rem 0.8rem; border-radius: 6px; }
+.subscribe-feedback.success { color: #00ffc8; background: rgba(0,255,200,0.08); border: 1px solid rgba(0,255,200,0.2); }
+.subscribe-feedback.error   { color: #ff8080; background: rgba(255,100,100,0.08); border: 1px solid rgba(255,100,100,0.2); }
+.subscribe-note { font-size: 0.78rem; color: #3d4f63; margin: 0.8rem 0 0; }
+
+/* Responsive */
+@media (max-width: 520px) {
+  .subscribe-inner      { padding: 2rem 1.5rem; }
+  .subscribe-input-wrap { flex-direction: column; }
+  .subscribe-btn        { width: 100%; }
+  .post-nav-btn         { max-width: 100%; }
+  .nav-title            { max-width: 18ch; }
+}
