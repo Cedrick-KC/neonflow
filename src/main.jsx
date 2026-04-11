@@ -5,12 +5,13 @@ import Navbar from './components/navbar.jsx';
 import Footer from './components/footer.jsx';
 import './main.css';
 import './Blog.css';
+import './BlogAddons.css';
 
 // ─── EmailJS config ─────────────────────────────────────────────────────────
 // Replace these with your own values from https://www.emailjs.com/
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID  = 'service_6b0rbuc';
+const EMAILJS_TEMPLATE_ID = 'template_bqijtya';
+const EMAILJS_PUBLIC_KEY  = 'QICH0i1piXaX-4Rtx';
 // ────────────────────────────────────────────────────────────────────────────
 
 // Utility: estimate reading time from a string
