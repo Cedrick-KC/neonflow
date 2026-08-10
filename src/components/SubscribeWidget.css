@@ -1,0 +1,119 @@
+/* SubscribeWidget.css */
+.subscribe-widget {
+  background: linear-gradient(135deg, #0e131f 0%, #050811 100%);
+  border: 1px solid rgba(0, 245, 160, 0.2);
+  border-radius: 20px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.subscribe-inner {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subscribe-badge {
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #00f5a0;
+  background-color: rgba(0, 245, 160, 0.1);
+  padding: 0.25rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.subscribe-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.subscribe-sub {
+  color: #94a3b8;
+  font-size: 0.975rem;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+}
+
+.subscribe-form {
+  width: 100%;
+}
+
+.subscribe-input-wrap {
+  display: flex;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 0.35rem;
+  transition: border-color 0.2s ease;
+}
+
+.subscribe-input-wrap:focus-within {
+  border-color: #00f5a0;
+}
+
+.subscribe-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.subscribe-input::placeholder {
+  color: #64748b;
+}
+
+.subscribe-btn {
+  background: #00f5a0;
+  color: #050811;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.subscribe-btn:hover:not(:disabled) {
+  background: #33f7b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 245, 160, 0.3);
+}
+
+.subscribe-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.subscribe-btn.success {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.subscribe-feedback {
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.subscribe-feedback.error { color: #f87171; }
+.subscribe-feedback.success { color: #34d399; }
+
+.subscribe-note {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+}

@@ -1,84 +1,1007 @@
-/* =============================================================================
-   BlogAddons.css  —  NeonFlow Portfolio
-   Import AFTER Blog.css in main.jsx:  import './BlogAddons.css'
-============================================================================= */
 
-/* Reading time */
-.post-reading-time { margin-left: 0.4em; opacity: 0.6; font-size: 0.85em; }
+/* =========================================================
+   NEONFLOW BLOG ADDONS
+   Premium effects & optional blog enhancements
+   ========================================================= */
 
-/* Vote buttons - FIX: box-shadow none overrides global button gradient */
-.vote-actions { display: flex; gap: 0.75rem; margin-top: 2rem; }
-.vote-btn {
-  display: inline-flex; align-items: center; gap: 0.45rem;
-  padding: 0.45rem 1.1rem; border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.05);
-  color: inherit; font-size: 0.9rem; cursor: pointer;
-  transition: background 0.18s, border-color 0.18s, transform 0.12s;
-  font-family: inherit; box-shadow: none;
+
+/* =========================================================
+   1. BLOG AMBIENT GLOW
+   ========================================================= */
+
+.blog-page-container {
+  isolation: isolate;
 }
-.vote-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.25); transform: translateY(-1px); box-shadow: none; }
-.vote-btn:active { transform: translateY(0); }
-.vote-btn span { font-variant-numeric: tabular-nums; min-width: 1.2ch; }
 
-/* Prev/Next nav */
-.post-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
-.post-nav-btn {
-  display: flex; align-items: center; gap: 0.75rem;
-  padding: 0.7rem 1rem; border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.03);
-  color: inherit; cursor: pointer; max-width: 48%; text-align: left;
-  transition: background 0.18s, border-color 0.18s, transform 0.12s;
-  font-family: inherit; box-shadow: none;
-}
-.post-nav-btn:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.2); transform: translateY(-1px); box-shadow: none; }
-.post-nav-btn.next { margin-left: auto; text-align: right; }
-.nav-arrow { font-size: 1.1rem; flex-shrink: 0; opacity: 0.7; }
-.nav-label { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
-.nav-hint { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.45; }
-.nav-title { font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 22ch; }
+.blog-page-container::before,
+.blog-page-container::after {
+  content: "";
 
-/* Subscribe widget */
-.subscribe-widget { margin: 4rem auto 2rem; max-width: 680px; padding: 0 1rem; }
-.subscribe-inner {
-  background: linear-gradient(135deg, #0d0d0d 0%, #111827 100%);
-  border: 1px solid rgba(0,255,200,0.18); border-radius: 16px;
-  padding: 2.5rem 2.8rem; position: relative; overflow: hidden;
-  box-shadow: 0 0 40px rgba(0,255,200,0.06), 0 4px 24px rgba(0,0,0,0.5);
+  position: fixed;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  filter: blur(120px);
+
+  opacity: 0.06;
 }
-.subscribe-inner::before {
-  content: ''; position: absolute; top: -60px; left: -60px;
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(0,255,200,0.12) 0%, transparent 70%);
+
+.blog-page-container::before {
+  top: 20%;
+
+  left: -220px;
+
+  background: var(--accent);
+}
+
+.blog-page-container::after {
+  bottom: 10%;
+
+  right: -220px;
+
+  background: var(--accent-secondary);
+}
+
+
+/* =========================================================
+   2. SIDEBAR HOVER GLOW
+   ========================================================= */
+
+.sidebar-card {
+  overflow: hidden;
+}
+
+.sidebar-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 80px;
+  height: 80px;
+
+  top: 50%;
+  right: -50px;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  filter: blur(45px);
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-card:hover::after {
+  opacity: 0.08;
+}
+
+.sidebar-card.active::after {
+  opacity: 0.12;
+}
+
+
+/* =========================================================
+   3. PREMIUM CARD SHINE
+   ========================================================= */
+
+.sidebar-card,
+.active-post,
+.subscribe-widget {
+  position: relative;
+}
+
+.sidebar-card::before,
+.active-post::before {
   pointer-events: none;
 }
-.subscribe-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; color: #00ffc8; border: 1px solid rgba(0,255,200,0.4); border-radius: 4px; padding: 3px 10px; margin-bottom: 1rem; text-transform: uppercase; }
-.subscribe-heading { font-size: 1.6rem; font-weight: 700; color: #f0f0f0; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
-.subscribe-sub { color: #8a9bb0; font-size: 0.95rem; margin: 0 0 1.6rem; line-height: 1.6; }
-.subscribe-form { display: flex; flex-direction: column; gap: 0.6rem; }
-.subscribe-input-wrap { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-.subscribe-input { flex: 1; min-width: 200px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 0.7rem 1rem; color: #e0e0e0; font-size: 0.95rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit; }
-.subscribe-input::placeholder { color: #4a5568; }
-.subscribe-input:focus { border-color: rgba(0,255,200,0.5); box-shadow: 0 0 0 3px rgba(0,255,200,0.08); }
-.subscribe-input:disabled { opacity: 0.5; cursor: not-allowed; }
-.subscribe-btn { background: linear-gradient(135deg, #00ffc8 0%, #00c89a 100%); color: #0a0a0a; font-weight: 700; font-size: 0.9rem; padding: 0.7rem 1.4rem; border: none; border-radius: 8px; cursor: pointer; white-space: nowrap; transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s; display: flex; align-items: center; justify-content: center; min-width: 130px; box-shadow: 0 0 16px rgba(0,255,200,0.25); font-family: inherit; }
-.subscribe-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 0 24px rgba(0,255,200,0.4); }
-.subscribe-btn:disabled { cursor: not-allowed; opacity: 0.7; }
-.subscribe-btn.success { background: linear-gradient(135deg, #00c89a 0%, #00a87e 100%); }
-.subscribe-btn.error   { background: linear-gradient(135deg, #ff6b6b 0%, #cc4444 100%); }
-.btn-spinner { width: 16px; height: 16px; border: 2px solid rgba(10,10,10,0.3); border-top-color: #0a0a0a; border-radius: 50%; animation: spin 0.7s linear infinite; display: inline-block; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.subscribe-feedback { font-size: 0.88rem; margin: 0; padding: 0.5rem 0.8rem; border-radius: 6px; }
-.subscribe-feedback.success { color: #00ffc8; background: rgba(0,255,200,0.08); border: 1px solid rgba(0,255,200,0.2); }
-.subscribe-feedback.error   { color: #ff8080; background: rgba(255,100,100,0.08); border: 1px solid rgba(255,100,100,0.2); }
-.subscribe-note { font-size: 0.78rem; color: #3d4f63; margin: 0.8rem 0 0; }
 
-/* Responsive */
-@media (max-width: 520px) {
-  .subscribe-inner      { padding: 2rem 1.5rem; }
-  .subscribe-input-wrap { flex-direction: column; }
-  .subscribe-btn        { width: 100%; }
-  .post-nav-btn         { max-width: 100%; }
-  .nav-title            { max-width: 18ch; }
+.active-post {
+  overflow: hidden;
+}
+
+.active-post:hover {
+  border-color:
+    rgba(0, 229, 255, 0.18);
+
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.active-post:hover {
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 229, 255, 0.025);
+}
+
+
+/* =========================================================
+   4. ARTICLE TITLE GLOW
+   ========================================================= */
+
+.post-display-title {
+  text-wrap: balance;
+
+  transition:
+    text-shadow 0.35s ease;
+}
+
+.active-post:hover .post-display-title {
+  text-shadow:
+    0 0 35px rgba(0, 229, 255, 0.06);
+}
+
+
+/* =========================================================
+   5. ARTICLE READING LINE
+   ========================================================= */
+
+.post-body {
+  position: relative;
+}
+
+.post-body::before {
+  content: "";
+
+  position: absolute;
+
+  left: -1px;
+
+  top: 35px;
+
+  width: 2px;
+
+  height: calc(100% - 35px);
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--accent),
+      rgba(0, 229, 255, 0)
+    );
+
+  opacity: 0.45;
+}
+
+
+/* =========================================================
+   6. ARTICLE PARAGRAPH ENHANCEMENT
+   ========================================================= */
+
+.post-body p {
+  text-wrap: pretty;
+}
+
+.post-body p strong {
+  color: var(--text-primary);
+
+  font-weight: 700;
+}
+
+.post-body p em {
+  color: #c4b5fd;
+}
+
+
+/* =========================================================
+   7. ARTICLE LINKS
+   ========================================================= */
+
+.post-body a {
+  position: relative;
+
+  color: var(--accent);
+
+  font-weight: 600;
+}
+
+.post-body a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -2px;
+
+  width: 100%;
+  height: 1px;
+
+  transform: scaleX(0);
+
+  transform-origin: right;
+
+  background: var(--accent);
+
+  transition:
+    transform 0.25s ease;
+}
+
+.post-body a:hover::after {
+  transform: scaleX(1);
+
+  transform-origin: left;
+}
+
+
+/* =========================================================
+   8. BLOCKQUOTES
+   ========================================================= */
+
+.post-body blockquote {
+  position: relative;
+
+  margin: 35px 0;
+
+  padding: 25px 28px 25px 35px;
+
+  border: 1px solid var(--border);
+
+  border-left:
+    3px solid var(--accent);
+
+  border-radius: 12px;
+
+  background:
+    rgba(0, 229, 255, 0.025);
+
+  color: #cbd5e1;
+
+  font-size: 1.05rem;
+
+  font-style: italic;
+}
+
+.post-body blockquote::before {
+  content: "“";
+
+  position: absolute;
+
+  top: -15px;
+
+  left: 15px;
+
+  color: var(--accent);
+
+  font-family: Georgia, serif;
+
+  font-size: 4rem;
+
+  line-height: 1;
+
+  opacity: 0.3;
+}
+
+
+/* =========================================================
+   9. CODE BLOCKS
+   ========================================================= */
+
+.post-body pre {
+  position: relative;
+
+  margin: 30px 0;
+
+  padding: 22px;
+
+  overflow-x: auto;
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  background:
+    #050914;
+
+  box-shadow:
+    inset 0 0 40px rgba(0, 229, 255, 0.025);
+}
+
+.post-body pre::before {
+  content: "CODE";
+
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: var(--text-muted);
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 0.62rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+}
+
+.post-body code {
+  color: #bae6fd;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  font-size: 0.88rem;
+}
+
+.post-body :not(pre) > code {
+  padding: 3px 7px;
+
+  border: 1px solid rgba(0, 229, 255, 0.1);
+
+  border-radius: 6px;
+
+  background:
+    rgba(0, 229, 255, 0.06);
+
+  color: var(--accent);
+
+  font-size: 0.85em;
+}
+
+
+/* =========================================================
+   10. ARTICLE LISTS
+   ========================================================= */
+
+.post-body ul,
+.post-body ol {
+  margin: 25px 0;
+
+  padding-left: 25px;
+
+  color: var(--text-secondary);
+}
+
+.post-body li {
+  margin-bottom: 10px;
+
+  line-height: 1.8;
+}
+
+.post-body ul li::marker {
+  color: var(--accent);
+}
+
+.post-body ol li::marker {
+  color: var(--accent);
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   11. ARTICLE HEADINGS
+   ========================================================= */
+
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  margin-top: 40px;
+
+  margin-bottom: 15px;
+
+  color: var(--text-primary);
+}
+
+.post-body h2 {
+  font-size: 1.8rem;
+}
+
+.post-body h3 {
+  font-size: 1.4rem;
+}
+
+.post-body h4 {
+  font-size: 1.1rem;
+}
+
+
+/* =========================================================
+   12. IMAGE STYLING
+   ========================================================= */
+
+.post-body img {
+  width: 100%;
+
+  margin: 35px 0;
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.3);
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.post-body img:hover {
+  transform: scale(1.01);
+
+  border-color:
+    rgba(0, 229, 255, 0.2);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(0, 229, 255, 0.04);
+}
+
+
+/* =========================================================
+   13. IMAGE CAPTIONS
+   ========================================================= */
+
+.post-body figure {
+  margin: 35px 0;
+}
+
+.post-body figcaption {
+  margin-top: -25px;
+
+  color: var(--text-muted);
+
+  font-size: 0.75rem;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   14. ARTICLE DIVIDER
+   ========================================================= */
+
+.post-body hr {
+  height: 1px;
+
+  margin: 45px 0;
+
+  border: none;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(0, 229, 255, 0.25),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   15. TAGS
+   ========================================================= */
+
+.blog-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 35px;
+}
+
+.blog-tag {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 6px 11px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+
+  color: var(--text-muted);
+
+  font-size: 0.7rem;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.blog-tag:hover {
+  color: var(--accent);
+
+  border-color:
+    rgba(0, 229, 255, 0.25);
+
+  background:
+    rgba(0, 229, 255, 0.05);
+}
+
+
+/* =========================================================
+   16. SHARE BUTTONS
+   ========================================================= */
+
+.blog-share {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 35px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid var(--border);
+}
+
+.blog-share-label {
+  margin-right: 5px;
+
+  color: var(--text-muted);
+
+  font-size: 0.7rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.blog-share-btn {
+  display: grid;
+
+  place-items: center;
+
+  width: 35px;
+  height: 35px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 9px;
+
+  background:
+    rgba(255, 255, 255, 0.02);
+
+  color: var(--text-secondary);
+
+  font-size: 0.8rem;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.blog-share-btn:hover {
+  transform: translateY(-3px);
+
+  color: var(--accent);
+
+  border-color:
+    rgba(0, 229, 255, 0.3);
+
+  background:
+    rgba(0, 229, 255, 0.06);
+}
+
+
+/* =========================================================
+   17. VOTE BUTTON MICRO-ANIMATION
+   ========================================================= */
+
+.vote-btn:active {
+  animation: votePop 0.25s ease;
+}
+
+@keyframes votePop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.92);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================================
+   18. SUBSCRIBE PREMIUM EFFECT
+   ========================================================= */
+
+.subscribe-widget {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.subscribe-widget::before {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  top: -180px;
+  left: 15%;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  filter: blur(100px);
+
+  opacity: 0.08;
+
+  pointer-events: none;
+}
+
+.subscribe-widget::after {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  right: 5%;
+  bottom: -200px;
+
+  border-radius: 50%;
+
+  background: var(--accent-secondary);
+
+  filter: blur(100px);
+
+  opacity: 0.08;
+
+  pointer-events: none;
+}
+
+.subscribe-inner {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.subscribe-heading {
+  transition:
+    text-shadow 0.3s ease;
+}
+
+.subscribe-widget:hover .subscribe-heading {
+  text-shadow:
+    0 0 25px rgba(0, 229, 255, 0.08);
+}
+
+
+/* =========================================================
+   19. SUBSCRIBE BUTTON EFFECT
+   ========================================================= */
+
+.subscribe-btn {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.subscribe-btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition:
+    left 0.6s ease;
+}
+
+.subscribe-btn:hover::before {
+  left: 150%;
+}
+
+
+/* =========================================================
+   20. SUCCESS STATE
+   ========================================================= */
+
+.subscribe-btn.success {
+  background:
+    linear-gradient(
+      135deg,
+      #22c55e,
+      #16a34a
+    );
+
+  color: white;
+}
+
+.subscribe-feedback.success {
+  animation:
+    feedbackEnter 0.35s ease;
+}
+
+
+/* =========================================================
+   21. ERROR STATE
+   ========================================================= */
+
+.subscribe-feedback.error {
+  animation:
+    feedbackShake 0.35s ease;
+}
+
+@keyframes feedbackEnter {
+  from {
+    opacity: 0;
+
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+@keyframes feedbackShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+
+/* =========================================================
+   22. BLOG LOADING SHIMMER
+   ========================================================= */
+
+.blog-loading {
+  min-height: 300px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 25%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(255, 255, 255, 0.02) 75%
+    );
+
+  background-size: 200% 100%;
+
+  animation:
+    blogShimmer 1.6s infinite;
+}
+
+@keyframes blogShimmer {
+  from {
+    background-position: 200% 0;
+  }
+
+  to {
+    background-position: -200% 0;
+  }
+}
+
+
+/* =========================================================
+   23. READING PROGRESS BAR
+   Optional — requires a .reading-progress element
+   ========================================================= */
+
+.reading-progress {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  z-index: 9999;
+
+  width: 100%;
+
+  height: 3px;
+
+  background: transparent;
+
+  pointer-events: none;
+}
+
+.reading-progress-bar {
+  width: var(--reading-progress, 0%);
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent-secondary)
+    );
+
+  box-shadow:
+    0 0 12px rgba(0, 229, 255, 0.6);
+
+  transition: width 0.1s linear;
+}
+
+
+/* =========================================================
+   24. BLOG BACK-TO-TOP
+   ========================================================= */
+
+.blog-back-top {
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  z-index: 100;
+
+  display: grid;
+
+  place-items: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  background:
+    rgba(10, 16, 32, 0.8);
+
+  color: var(--accent);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25);
+
+  opacity: 0;
+
+  transform:
+    translateY(10px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.blog-back-top.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+.blog-back-top:hover {
+  border-color:
+    rgba(0, 229, 255, 0.3);
+
+  box-shadow:
+    0 0 25px rgba(0, 229, 255, 0.08);
+}
+
+
+/* =========================================================
+   25. MOBILE ADDONS
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+  .post-body::before {
+    display: none;
+  }
+
+  .post-body blockquote {
+    padding: 20px 20px 20px 25px;
+
+    font-size: 0.95rem;
+  }
+
+  .post-body pre {
+    margin-left: -5px;
+
+    margin-right: -5px;
+
+    border-radius: 10px;
+  }
+
+  .blog-share {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .blog-share-label {
+    margin-bottom: 4px;
+  }
+
+  .blog-back-top {
+    right: 15px;
+
+    bottom: 15px;
+
+    width: 38px;
+
+    height: 38px;
+  }
+}
+
+
+/* =========================================================
+   26. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sidebar-card,
+  .active-post,
+  .subscribe-btn,
+  .vote-btn,
+  .post-body img {
+    transition: none;
+  }
+
+  .subscribe-feedback,
+  .blog-loading {
+    animation: none;
+  }
 }

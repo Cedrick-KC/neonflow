@@ -1,0 +1,29 @@
+/* About.css */
+.about-page {
+  padding-top: 4.5rem;
+  padding-bottom: 6rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.about-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.about-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.about-card ul {
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}

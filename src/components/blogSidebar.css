@@ -1,0 +1,88 @@
+/* BlogSidebar.css */
+.blog-sidebar {
+  background-color: #0e131f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 90px;
+}
+
+.blog-sidebar-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 1.25rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-list {
+  list-style: none; /* Removes bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sidebar-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+  font-family: inherit;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.sidebar-item.active {
+  background-color: rgba(0, 245, 160, 0.08);
+  border-color: rgba(0, 245, 160, 0.25);
+}
+
+.sidebar-item-category {
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #00f5a0;
+  text-transform: uppercase;
+}
+
+.sidebar-item-title {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.sidebar-item:hover .sidebar-item-title,
+.sidebar-item.active .sidebar-item-title {
+  color: #ffffff;
+}
+
+.sidebar-item-date {
+  font-size: 0.775rem;
+  color: #64748b;
+}
+
+.active-indicator {
+  position: absolute;
+  left: 0;
+  top: 15%;
+  bottom: 15%;
+  width: 3px;
+  background-color: #00f5a0;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 8px #00f5a0;
+}
